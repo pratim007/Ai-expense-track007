@@ -1,0 +1,15 @@
+import express from 'express';
+import protect from '../middleware/authMiddleWare.js';
+import { getCategoryBreakdown, getMonthlyTrend, getSummary } from '../controllers/dashboardController.js';
+
+
+
+const router = express.Router();
+
+router.use(protect);
+
+router.get('/summary', getSummary);
+router.get('/category-breakdown', getCategoryBreakdown);
+router.get('/monthly-trend', getMonthlyTrend);
+
+export default router;
