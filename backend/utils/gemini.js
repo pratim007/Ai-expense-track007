@@ -67,7 +67,7 @@ Constraints:
 
     try {
         const response = await ai.models.generateContent({
-            model: 'gemini-3.5-flash',
+            model: 'gemini-3.6-flash',
             contents: prompt,
         });
         const cleaned = stripMarkdown(response.text);
@@ -111,7 +111,7 @@ export const generateBudgetAlert = async ({
 
     try {
         const response = await ai.models.generateContent({
-            model: 'gemini-3.5-flash',
+            model: 'gemini-3.6-flash',
             contents: prompt,
         });
         const cleaned = stripMarkdown(response.text);
@@ -150,7 +150,7 @@ Provide exactly 4 tips. Each tip should reference an actual category from the da
 
     try {
         const response = await ai.models.generateContent({
-            model: 'gemini-3.5-flash',
+            model: 'gemini-3.6-flash',
             contents: prompt,
         });
         const cleaned = stripMarkdown(response.text);
@@ -197,7 +197,7 @@ export const analyzeTransactionList = async ({ transactions, currency = 'USD' })
 
     try {
         const response = await ai.models.generateContent({
-            model: 'gemini-3.5-flash',
+            model: 'gemini-3.6-flash',
             contents: prompt,
         });
         const cleaned = stripMarkdown(response.text);
@@ -237,7 +237,7 @@ Return ONLY valid JSON (no markdown):
 
     try {
         const response = await ai.models.generateContent({
-            model: 'gemini-3.5-flash',
+            model: 'gemini-3.6-flash',
             contents: prompt,
         });
         const cleaned = stripMarkdown(response.text);
