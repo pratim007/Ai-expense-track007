@@ -65,17 +65,17 @@ Constraints:
 - Provide 3 recommendations.
 - Reference actual numbers from the data. Tone: friendly but honest.`;
 
-try {
-    const response = await ai.models.generateContent({
-        model: 'gemini-3.5-flash',
-        contents: prompt,
-    });
-    const cleaned = stripMarkdown(response.text);
-    return JSON.parse(cleaned);
-} catch (error) {
-    console.error('Gemini API error (monthly insight):', error);
-    throw new Error('Failed to generate monthly insight. Please try again.');
-}
+    try {
+        const response = await ai.models.generateContent({
+            model: 'gemini-3.5-flash',
+            contents: prompt,
+        });
+        const cleaned = stripMarkdown(response.text);
+        return JSON.parse(cleaned);
+    } catch (error) {
+        console.error('Gemini API error (monthly insight):', error);
+        throw new Error('Failed to generate monthly insight. Please try again.');
+    }
 };
 
 export const generateBudgetAlert = async ({
@@ -109,17 +109,17 @@ export const generateBudgetAlert = async ({
     - warning: 70-100% spent
     - critical: over 100% spent`;
 
-try {
-    const response = await ai.models.generateContent({
-        model: 'gemini-3.5-flash',
-        contents: prompt,
-    });
-    const cleaned = stripMarkdown(response.text);
-    return JSON.parse(cleaned);
-} catch (error) {
-    console.error('Gemini API error (budget alert):', error);
-    throw new Error('Failed to generate budget alert.');
-}
+    try {
+        const response = await ai.models.generateContent({
+            model: 'gemini-3.5-flash',
+            contents: prompt,
+        });
+        const cleaned = stripMarkdown(response.text);
+        return JSON.parse(cleaned);
+    } catch (error) {
+        console.error('Gemini API error (budget alert):', error);
+        throw new Error('Failed to generate budget alert.');
+    }
 };
 
 export const generateSavingsTips = async ({ topCategories, monthlyIncome, currency = 'USD' }) => {
@@ -148,7 +148,7 @@ Return ONLY valid JSON (no markdown):
 
 Provide exactly 4 tips. Each tip should reference an actual category from the data and include a realistic monthly savings estimate in ${currency}. Tone: encouraging and practical.`;
 
- try {
+    try {
         const response = await ai.models.generateContent({
             model: 'gemini-3.5-flash',
             contents: prompt,
@@ -184,7 +184,7 @@ export const analyzeTransactionList = async ({ transactions, currency = 'USD' })
         })
         .join('\n');
 
-            const prompt = `Analyze these ${transactions.length} transactions and provide a concise, helpful spending insight.
+    const prompt = `Analyze these ${transactions.length} transactions and provide a concise, helpful spending insight.
 
             Transactions:
             ${lines}
@@ -248,7 +248,7 @@ Return ONLY valid JSON (no markdown):
     }
 };
 
-export default{
+export default {
     generateMonthlyInsight,
     generateBudgetAlert,
     generateSavingsTips,
